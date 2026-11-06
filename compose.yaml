@@ -1,0 +1,13 @@
+services:
+  traced:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      WINDOW_MINUTES: "30"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+
